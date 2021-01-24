@@ -1,3 +1,16 @@
 site_name: Traffic Analysis Train
-theme: material
 
+theme:
+  name: 'material'
+  language: 'zh'
+  palette:
+    primary: 'white'
+    accent: 'red'
+  icon:
+  logo: 'assets/logo_white.png'
+  favicon: 'assets/favicon.ico'
+
+
+extra:
+  search:
+    language: 'jp'
