@@ -1,0 +1,1082 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>FRANK-N-TED (WHAT'S GOING ON?) - Traffic Analysis Train</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frank-n-ted-whats-going-on" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Traffic Analysis Train" class="md-header__button md-logo" aria-label="Traffic Analysis Train" data-md-component="logo">
+      
+  <img src="../assets/logo_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Traffic Analysis Train
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FRANK-N-TED (WHAT'S GOING ON?)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/satan1a/traffic-analysis-train/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Toky/TrafficAnalysis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Traffic Analysis Train" class="md-nav__button md-logo" aria-label="Traffic Analysis Train" data-md-component="logo">
+      
+  <img src="../assets/logo_white.png" alt="logo">
+
+    </a>
+    Traffic Analysis Train
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/satan1a/traffic-analysis-train/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Toky/TrafficAnalysis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x0_%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83/" class="md-nav__link">
+        相关参考
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x1_23-8-2020/" class="md-nav__link">
+        PIZZA-BENDER
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x2_24-8-2020/" class="md-nav__link">
+        Pcap and alerts for an ISC diary
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x3_26-8-2020/" class="md-nav__link">
+        TECSOLUTIONS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          FRANK-N-TED (WHAT'S GOING ON?)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        FRANK-N-TED (WHAT'S GOING ON?)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    先看一下HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    恶意文件检查
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    分析下载行为的前后活动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    部分总结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    提出问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    确定疑似受害资产的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    确定资产沦陷的先后关系
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    最终结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    结果补充
+  </a>
+  
+    <nav class="md-nav" aria-label="结果补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    木马类型的鉴别和相关关联
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    TCP外网访问流量过滤操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    标准答案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    报告总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    补充
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-based-active-directory-ad-infrastructure" class="md-nav__link">
+    Windows-based Active Directory (AD) infrastructure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    DHCP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#igmp" class="md-nav__link">
+    IGMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    域控制器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    局域网网关
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x5_29-8-2020/" class="md-nav__link">
+        CATBOMBER
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x6_1-9-2020/" class="md-nav__link">
+        STEELCOFFEE
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x7_7-9-2020/" class="md-nav__link">
+        MONDOGREEK
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x8_22-9-2020/" class="md-nav__link">
+        PCAP AND INFO FOR AN ISC DIARY
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x9_14-3-2021/" class="md-nav__link">
+        TROUBLE ALERT
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0xA_17-10-2021/" class="md-nav__link">
+        ASCOLIMITED
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0xB_18-10-2021/" class="md-nav__link">
+        ANGRYPOUTINE
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    先看一下HTTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    恶意文件检查
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    分析下载行为的前后活动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    部分总结
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    提出问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    确定疑似受害资产的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    确定资产沦陷的先后关系
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    最终结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    结果补充
+  </a>
+  
+    <nav class="md-nav" aria-label="结果补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    木马类型的鉴别和相关关联
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    TCP外网访问流量过滤操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    标准答案
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    报告总结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    补充
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-based-active-directory-ad-infrastructure" class="md-nav__link">
+    Windows-based Active Directory (AD) infrastructure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    DHCP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#igmp" class="md-nav__link">
+    IGMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    域控制器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    局域网网关
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/satan1a/traffic-analysis-train/edit/master/docs/0x4_27-8-2020.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="frank-n-ted-whats-going-on">FRANK-N-TED (WHAT'S GOING ON?)</h1>
+<h2 id="_1">内容</h2>
+<blockquote>
+<p>## 2020-06-12 - TRAFFIC ANALYSIS EXERCISE - FRANK-N-TED (WHAT'S GOING ON?)</p>
+<p>ASSOCIATED FILES:</p>
+<ul>
+<li>Zip archive of the pcap: <a href="https://www.malware-traffic-analysis.net/2020/06/12/2020-06-12-traffic-analysis-exercise.pcap.zip">2020-06-12-traffic-analysis-exercise.pcap.zip</a>  5.5 MB (5,481,011 bytes)<ul>
+<li>2020-06-12-traffic-analysis-exercise.pcap  (6,563,386 bytes)</li>
+</ul>
+</li>
+</ul>
+<p>NOTES:</p>
+<ul>
+<li>All zip archives on this site are password-protected with the standard password. If you don't know it, look at the "about" page of this website.</li>
+</ul>
+<p>## SCENARIO</p>
+<p>Frank and Ted are two brothers who have a business named "Frank-n-Ted" along with a Windows-based Active Directory (AD) infrastructure.</p>
+<p>LAN segment data:</p>
+<ul>
+<li>LAN segment range: 10.6.12.0/24 (10.6.12.0 through 10.6.12.255)</li>
+<li>Domain: frank-n-ted.com</li>
+<li>Domain controller: 10.6.12.12 - Frank-n-Ted-DC</li>
+<li>LAN segment gateway: 10.6.12.1</li>
+<li>LAN segment broadcast address: 10.6.12.255 </li>
+</ul>
+<p>## QUESTIONS</p>
+<ul>
+<li>Figure out what's going on. Frank and Ted are busy watching <a href="https://www.youtube.com/watch?v=FR7wOGyAzpw">a silly He Man video</a> on Youtube. </li>
+</ul>
+<p>## ANSWERS</p>
+<ul>
+<li>Click <a href="https://www.malware-traffic-analysis.net/2020/06/12/page2.html">here</a> for the answers.</li>
+</ul>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<h3 id="http">先看一下HTTP</h3>
+<p>搜索HTTP流量，看HOST中是否有可疑的，可以看到，都是资产去访问很长的域名，或者IP，都比较可疑。并且，这种POST形式的HTTP流量，本身就比较可疑。其中有一个<code>10.6.12.157</code>访问外部IP<code>172.93.120.242</code>，下载了一个<code>invoice-86495.doc</code>的doc文件，比较可疑。</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827161310.png" /></p>
+<p>导出该可疑文件，放入沙箱进行检查。发现全绿，文件可能没有问题。查看对应的HOST：<code>cardboardspaceshiptoys.com</code>是否有问题，可以看到，VT捕捉到了它的一个恶意行为。</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827161854.png" /></p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827163311.png" /></p>
+<h3 id="_2">恶意文件检查</h3>
+<p>接下来，我们换个方向，看到了一个下载<code>june.dll</code>文件的行为，follw后发现其下载了一个可执行文件，比较可疑，导出进行分析：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827163657.png" /></p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827163730.png" /></p>
+<p>上传<code>June.dll</code>文件进行分析，可以看到其为恶意文件</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827163843.png" /></p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827164055.png" /></p>
+<p>记录一下，资产IP：<code>10.6.12.203</code>访问恶意IP：<code>205.185.125.104</code>，下载恶意文件<code>june11.dll</code>，流量记录ID为：3302。</p>
+<h3 id="_3">分析下载行为的前后活动</h3>
+<p>以该恶意IP为基准，排查资产下载该IP的恶意文件这一行为前后的活动。重点看前面，它是经过什么方式，才让资产去下载恶意文件。</p>
+<p>可以看到，在下载这个恶意文件之前，资产IP<code>10.6.12.157</code>访问了一个<code>172.93.120.242</code>IP下载了一个doc文件，然后有一个302跳转。后在经过几十秒后，另一资产IP<code>10.6.12.203</code>访问了<code>205.185.125.104</code>，又有一次302跳转，后面<code>10.6.12.203</code>才向<code>205.185.125.104</code>下载了恶意文件。随后就是资产IP<code>10.6.12.203</code>与<code>5.101.51.151</code>之间的频繁交互。</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827170952.png" /></p>
+<p>follow之后的频繁交互，可以看到，请求响应都为乱码，结合通讯频率，猜测其为C2通讯的信息，即主机此时已经沦陷：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827171701.png" /></p>
+<h3 id="_4">部分总结</h3>
+<p><code>10.6.12.203</code>访问<code>205.185.125.104</code>，下载了恶意文件，随后就是资产IP<code>10.6.12.203</code>与C2服务器<code>5.101.51.151</code>之间的频繁交互</p>
+<h3 id="_5">提出问题</h3>
+<p>先前都是<code>10.6.12.157</code>与<code>172.93.120.242</code>的交互，为什么一下子就是变成<code>10.6.12.203</code>访问<code>205.185.125.104</code>呢？中间发生了什么呢？</p>
+<p>资产<code>10.6.12.157</code>与<code>10.6.12.203</code>是什么关系呢？分别是什么类型的资产呢？</p>
+<h3 id="_6">确定疑似受害资产的信息</h3>
+<p>搜索<code>nbns</code>协议的记录，看资产IP在局域网的请求交互，可以确定资产IP的身份标识。</p>
+<p>可以确定资产的身份标识 ：</p>
+<ul>
+<li>
+<p><code>10.6.12.203</code> —— <code>LAPTOP-5WKHX9YG</code></p>
+</li>
+<li>
+<p><code>10.6.12.157</code> —— <code>DESKTOP-86J4BX</code></p>
+</li>
+</ul>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827174358.png" /></p>
+<h3 id="_7">确定资产沦陷的先后关系</h3>
+<p>搜索<code>ip.addr == 205.185.125.104 &amp;&amp; tcp</code>发现该外部IP最早的一条TCP通讯为:</p>
+<pre><code>3295    2020-06-12 17:15:19.355115  10.6.12.203 205.185.125.104 49739   80  TCP 66          49739 → 80 [SYN] Seq=0 Win=65535 Len=0 MSS=1460 WS=256 SACK_PERM=1
+</code></pre>
+<p>最早与其交互的资产IP为<code>10.6.12.203</code>。其时间点为：<code>2020-06-12 17:15:19.355115</code>。</p>
+<p>搜索<code>10.6.12.157</code>与<code>205.185.125.104</code>的交互，发现没有交互：</p>
+<pre><code>ip.dst == 205.185.125.104 &amp;&amp; ip.src == 10.6.12.157
+ip.src == 205.185.125.104 &amp;&amp; ip.dst == 10.6.12.157
+</code></pre>
+<p>可以确定：恶意IP<code>205.185.125.104</code>不直接尝试控制资产<code>10.6.12.157</code>。猜测原因为：<code>10.6.12.157</code>为局域网内的资产，没有公开入口。</p>
+<p>总是，我们发现两者没有交互，所以没有办法验证攻击者进行了内网横向渗透。</p>
+<h2 id="_8">最终结果</h2>
+<p>资产IP <code>10.6.12.203</code>访问<code>205.185.125.104</code>，下载了恶意文件，随后就是资产IP<code>10.6.12.203</code>与C2服务器<code>5.101.51.151</code>之间的频繁交互</p>
+<h2 id="_9">结果补充</h2>
+<h3 id="_10">木马类型的鉴别和相关关联</h3>
+<p>在我的解答过程中，我发现自己遗漏了对木马文件的类型识别和相关分析。例如下图，我从VT上可以初步判别该木马文件为Zloader[5]，在实际分析过程中，我需要去了解这个木马的相关信息：</p>
+<ul>
+<li>比如它主要利用的通讯协议是什么</li>
+<li>该木马的通讯流量是否可以解密</li>
+<li>该木马的利用方法一般是什么样的</li>
+<li>...</li>
+</ul>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200827182924.png" /></p>
+<h3 id="tcp">TCP外网访问流量过滤操作</h3>
+<pre><code>(http.request or tls.handshake.type eq 1) and !(ssdp)
+</code></pre>
+<p>该操作选择展示http请求流量或者https的握手请求，并且过滤了本地局域网访问的ssdp协议。用以展现局域网内向外网发起请求的TCP流量/</p>
+<h3 id="_11">标准答案</h3>
+<blockquote>
+<p>IP address: <strong>10.6.12.157
+  </strong> MAC address: 00:11:75:68:42:d3 (IntelCor_68:42:d3) Host name: DESKTOP-86J4BX
+   User account name: ted.brokowski</p>
+<p>IP IP address: <strong>10.6.12.203
+  </strong> MAC address: 84:3a:4b:6d:fc:e2 (IntelCor_6d:fc:e2) Host name: LAPTOP-5WKHX9YG
+   User account name: frank.brokowski</p>
+</blockquote>
+<h2 id="_12">报告总结</h2>
+<ul>
+<li>Environment（调查的资产信息/环境）<ul>
+<li>LAN segment range</li>
+<li>Domain</li>
+<li>Domain controller</li>
+<li>LAN segment gateway</li>
+<li>LAN segment broadcast address</li>
+</ul>
+</li>
+<li>Incident Report<ul>
+<li>Executive summary（感染过程总结）</li>
+<li>Victim details（受害者细节）<ul>
+<li>IP address</li>
+<li>MAC address</li>
+<li>User account name</li>
+</ul>
+</li>
+<li>Indicators of compromise (IOCs)<ul>
+<li>SHA256 hash</li>
+<li>File size</li>
+<li>File name</li>
+<li>File location</li>
+<li>File description</li>
+</ul>
+</li>
+<li>HTTP traffic to retrieve the malware<ul>
+<li>即 下载恶意文件的HTTP流量记录</li>
+</ul>
+</li>
+<li>HTTP traffic for remote request infection activity<ul>
+<li>即 感染相关的远程请求活动的HTTP流量记录</li>
+</ul>
+</li>
+<li>INVESTIGATION（调查过程）<ul>
+<li>最后可以给一个精简的流程图</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_13">补充</h2>
+<h3 id="windows-based-active-directory-ad-infrastructure">Windows-based Active Directory (AD) infrastructure</h3>
+<p>活动目录</p>
+<blockquote>
+<p>是在微软Windows Server中，负责架构中大型网络环境的集中式目录管理服务（Directory Services），在Windows 2000 Server开始内置于Windows Server产品中，它处理在组织中的网络对象，对象可以是用户、组群、电脑、网域控制站、邮件、配置文件、组织单元、树系等等，只要是在活动目录结构定义档（schema）中定义的对象，就可以存储在活动目录资料档中，并利用活动目录 Service Interface来访问，实际上，许多活动目录的管理工具都是利用这个接口来调用并使用活动目录的资料。[1]</p>
+</blockquote>
+<h3 id="dhcp">DHCP</h3>
+<blockquote>
+<p><strong>动态主机设置协议</strong>（英语：<strong>D</strong>ynamic <strong>H</strong>ost <strong>C</strong>onfiguration <strong>P</strong>rotocol，缩写：<strong>DHCP</strong>），又称<strong>动态主机组态协定</strong>，是一个用于<a href="https://zh.wikipedia.org/wiki/网际协议">IP</a>网络的<a href="https://zh.wikipedia.org/wiki/网络协议">网络协议</a>，位于<a href="https://zh.wikipedia.org/wiki/OSI模型">OSI模型</a>的<a href="https://zh.wikipedia.org/wiki/应用层">应用层</a>，使用<a href="https://zh.wikipedia.org/wiki/用户数据报协议">DHCP</a>协议工作，主要有两个用途：[2]</p>
+<ul>
+<li>用于内部网或网络服务供应商自动分配<a href="https://zh.wikipedia.org/wiki/IP地址">IP地址</a>给用户</li>
+<li>用于内部网管理员对所有电脑作中央管理</li>
+</ul>
+</blockquote>
+<h3 id="igmp">IGMP</h3>
+<blockquote>
+<p><strong>网路群组管理协议</strong>（英语：<strong>I</strong>nternet <strong>G</strong>roup <strong>M</strong>anagement <strong>P</strong>rotocol，缩写：<strong>IGMP</strong>）是用于管理网路协议<a href="https://zh.wikipedia.org/wiki/多播">多播</a>组成员的一种通信协议。IP主机和相邻的路由器利用IGMP来创建多播组的组成员。像<a href="https://zh.wikipedia.org/wiki/ICMP">ICMP</a>用于单播连接一样，IGMP也是IP多播说明的一个完整部分。 IGMP为互联网协议的一种，属于开放系统链接(OSI) 模块的第三层协议，IP主机用它将主机的多点发送成员人数报告给临近的多点发送路由器。[3]</p>
+</blockquote>
+<h3 id="ldap">LDAP</h3>
+<blockquote>
+<p>LDAP 的全称是 Lightweight Directory Access Protocol，<strong>「轻量目录访问协议」</strong>。</p>
+<p>划重点，LDAP <strong>「是一个协议」</strong>，约定了 Client 与 Server 之间的信息交互格式、使用的端口号、认证方式等内容。[4]</p>
+</blockquote>
+<h3 id="_14">域控制器</h3>
+<p>域控制器是指在“域”模式下，至少有一台服务器负责每一台联入网络的电脑和用户的验证工作，相当于一个单位的门卫一样，称为“域控制器（Domain Controller，简写为DC）”。</p>
+<h3 id="_15">局域网网关</h3>
+<p>LAN segment gateway</p>
+<h2 id="references">References</h2>
+<p>[1] 活动目录，https://zh.wikipedia.org/wiki/Active_Directory</p>
+<p>[2] 动态主机设置协议，<a href="https://zh.wikipedia.org/wiki/动态主机设置协议">https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%8D%8F%E8%AE%AE</a></p>
+<p>[3] 因特网组管理协议，<a href="https://zh.wikipedia.org/wiki/因特网组管理协议">https://zh.wikipedia.org/wiki/%E5%9B%A0%E7%89%B9%E7%BD%91%E7%BB%84%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE</a></p>
+<p>[4] LDAP 协议入门（轻量目录访问协议），https://zhuanlan.zhihu.com/p/147768058</p>
+<p>[5] ZLoader Banking Malware Resurfaces, https://www.bankinfosecurity.com/new-version-zloader-banking-malware-resurfaces-a-14336</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../0x3_26-8-2020/" class="md-footer__link md-footer__link--prev" aria-label="上一页: TECSOLUTIONS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              TECSOLUTIONS
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../0x5_29-8-2020/" class="md-footer__link md-footer__link--next" aria-label="下一页: CATBOMBER" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              CATBOMBER
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+    
+  </body>
+</html>

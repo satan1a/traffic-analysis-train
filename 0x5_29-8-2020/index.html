@@ -1,0 +1,1188 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>CATBOMBER - Traffic Analysis Train</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#catbomber" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Traffic Analysis Train" class="md-header__button md-logo" aria-label="Traffic Analysis Train" data-md-component="logo">
+      
+  <img src="../assets/logo_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Traffic Analysis Train
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CATBOMBER
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/satan1a/traffic-analysis-train/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Toky/TrafficAnalysis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Traffic Analysis Train" class="md-nav__button md-logo" aria-label="Traffic Analysis Train" data-md-component="logo">
+      
+  <img src="../assets/logo_white.png" alt="logo">
+
+    </a>
+    Traffic Analysis Train
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/satan1a/traffic-analysis-train/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Toky/TrafficAnalysis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x0_%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83/" class="md-nav__link">
+        相关参考
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x1_23-8-2020/" class="md-nav__link">
+        PIZZA-BENDER
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x2_24-8-2020/" class="md-nav__link">
+        Pcap and alerts for an ISC diary
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x3_26-8-2020/" class="md-nav__link">
+        TECSOLUTIONS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x4_27-8-2020/" class="md-nav__link">
+        FRANK-N-TED (WHAT'S GOING ON?)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CATBOMBER
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        CATBOMBER
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    调查过程
+  </a>
+  
+    <nav class="md-nav" aria-label="调查过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    看可疑HTTP流量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    初步确定感染资产的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基于域控制器进行分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    获取受感染电邮密码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    答案及后续分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    答案
+  </a>
+  
+    <nav class="md-nav" aria-label="答案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    通过木马通讯特征
+  </a>
+  
+    <nav class="md-nav" aria-label="通过木马通讯特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    成功感染时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    获取密码时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    发送文件时的特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    补充
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trickbot" class="md-nav__link">
+    Trickbot
+  </a>
+  
+    <nav class="md-nav" aria-label="Trickbot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    攻击流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    木马分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    感染特征
+  </a>
+  
+    <nav class="md-nav" aria-label="感染特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    成功感染时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    获取密码时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    发送文件时的特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    知识点补充
+  </a>
+  
+    <nav class="md-nav" aria-label="知识点补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#banking-trojan" class="md-nav__link">
+    什么是银行木马（Banking Trojan）？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http_1" class="md-nav__link">
+    分析HTTP的技巧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    木马的特殊通信方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    全网环境下的流量监控
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x6_1-9-2020/" class="md-nav__link">
+        STEELCOFFEE
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x7_7-9-2020/" class="md-nav__link">
+        MONDOGREEK
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x8_22-9-2020/" class="md-nav__link">
+        PCAP AND INFO FOR AN ISC DIARY
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x9_14-3-2021/" class="md-nav__link">
+        TROUBLE ALERT
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0xA_17-10-2021/" class="md-nav__link">
+        ASCOLIMITED
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0xB_18-10-2021/" class="md-nav__link">
+        ANGRYPOUTINE
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    调查过程
+  </a>
+  
+    <nav class="md-nav" aria-label="调查过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    看可疑HTTP流量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    初步确定感染资产的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基于域控制器进行分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    获取受感染电邮密码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    答案及后续分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    答案
+  </a>
+  
+    <nav class="md-nav" aria-label="答案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    通过木马通讯特征
+  </a>
+  
+    <nav class="md-nav" aria-label="通过木马通讯特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    成功感染时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    获取密码时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    发送文件时的特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    补充
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trickbot" class="md-nav__link">
+    Trickbot
+  </a>
+  
+    <nav class="md-nav" aria-label="Trickbot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    介绍
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    攻击流程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    木马分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    感染特征
+  </a>
+  
+    <nav class="md-nav" aria-label="感染特征">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    成功感染时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    获取密码时的特征
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    发送文件时的特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    知识点补充
+  </a>
+  
+    <nav class="md-nav" aria-label="知识点补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#banking-trojan" class="md-nav__link">
+    什么是银行木马（Banking Trojan）？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http_1" class="md-nav__link">
+    分析HTTP的技巧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    木马的特殊通信方式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    全网环境下的流量监控
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/satan1a/traffic-analysis-train/edit/master/docs/0x5_29-8-2020.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="catbomber">CATBOMBER</h1>
+<h2 id="_1">题目</h2>
+<blockquote>
+<p>## 2020-05-28 - TRAFFIC ANALYSIS EXERCISE - CATBOMBER</p>
+<p>ASSOCIATED FILES:</p>
+<ul>
+<li>Zip archive of the pcap: <a href="https://www.malware-traffic-analysis.net/2020/05/28/2020-05-28-traffic-analysis-exercise.pcap.zip">2020-05-28-traffic-analysis-exercise.pcap.zip</a>  6.1 MB (6,148,841 bytes)<ul>
+<li>2020-05-28-traffic-analysis-exercise.pcap  (8,322,070 bytes)</li>
+</ul>
+</li>
+</ul>
+<p>NOTES:</p>
+<ul>
+<li>All zip archives on this site are password-protected with the standard password. If you don't know it, look at the "about" page of this website. </li>
+</ul>
+<p>## SCENARIO</p>
+<p>LAN segment data:</p>
+<ul>
+<li>LAN segment range: 10.5.28.0/24 (10.5.28.0 through 10.5.28.255)</li>
+<li>Domain: catbomber.net</li>
+<li>Domain controller: 10.5.28.8 - Catbomber-DC</li>
+<li>LAN segment gateway: 10.5.28.1</li>
+<li>LAN segment broadcast address: 10.5.28.255</li>
+</ul>
+<p>## QUESTIONS</p>
+<p>This month's pcap is a Trickbot infection in an Active Directory (AD) environment where the infection spreads to the Domain Controller (DC).</p>
+<ul>
+<li>Based on the Trickbot infection's HTTP POST traffic, what is the IP address, host name, and user account name for the infected Windows client?</li>
+<li>What is the other user account name and other Windows client host name found in the Trickbot HTTP POST traffic?</li>
+<li>What is the infected user's email password?</li>
+<li>Two Windows executable files are sent in the network traffic. What are the SHA256 file hashes for these files? </li>
+</ul>
+</blockquote>
+<h2 id="_2">调查过程</h2>
+<p>本题目中直接说明了是Trickbot感染，从AD到域控制器，是一个严重的入侵事件。由于对Trickbot木马未曾了解，所以需要先学习一下该木马的感染详情。但因为时间不是很充裕，先做题为主。</p>
+<h3 id="http">看可疑HTTP流量</h3>
+<p>首先查看http流量，看有没有一些可疑的HOST、POST请求，看到一条资产IP<code>10.5.28.229</code>与外部可疑IP<code>203.176.135.102:8082</code>的POST通讯：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200829231333.png" /></p>
+<p>可以看到其中资产IP发送了一个名为prolist的数据，其中看内容是包含了：系统进程相关信息、系统信息、本地机器数据。
+<img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200829231655.png" /></p>
+<p>继续往后看，看到一条传输疑似为C2信息的流量记录：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200829230953.png" /></p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200829232008.png" /></p>
+<h3 id="_3">初步确定感染资产的信息</h3>
+<p>通过可疑的POST请求以及疑似的C2通讯信息，可以确定感染的资产IP为：<code>10.5.28.229</code>。</p>
+<p>通过发送的系统信息，可疑看到受感染主机的信息：</p>
+<ul>
+<li>受感染资产的主机名为：<code>CAT-BOMB-W7-PC</code>或<code>Cat-Bomb-W7-PC.catbomber.net</code></li>
+<li>受感染的Windows用户名为：<code>phillip.ghent</code></li>
+<li>可以确定该资产的操作系统为：Windows 7 Professional</li>
+</ul>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200829232714.png" /></p>
+<h3 id="_4">基于域控制器进行分析</h3>
+<p>该木马的感染过程是先感染域内的某台主机（即<code>10.5.28.229</code>），然后控制域控制器（<code>10.5.28.8</code>）进行横向的渗透。</p>
+<p>因此，我们查询域控制器被拿下后，域控制器与内网其他资产的通讯行为，进行资产受害排查：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830000752.png" /></p>
+<p>由上图可以看到，由于域控制器的TCP通讯信息太多，无法直接一条条看，需要先做统计，看总共有哪些域内资产：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830000653.png" /></p>
+<p>可以看到记录下来资产通讯IP没有更多有价值的，除去域控制器和229，其余是关口设备。</p>
+<p>因此我们再返回去看域控制器发送的信息：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830002403.png" /></p>
+<p>可以看到其他感染的Windows客户端为：<code>CAT-BOMB-W10-PC.catbomber.net</code>，其用户名为<code>timothy.sizemore</code></p>
+<h3 id="_5">获取受感染电邮密码</h3>
+<p>获取通讯流量中电邮密码可以是通过POP协议，直接明文展示，但本流量中没有显示。或者follw SMTP流量（info中显示用户登入的信息），然后将内容经过base 64解码可获得登入密码。</p>
+<p>在此处卡住了。</p>
+<h2 id="_6">答案及后续分析</h2>
+<h2 id="_7">答案</h2>
+<blockquote>
+<ol>
+<li>
+<p>Infected Windows client IP address: <strong>10.5.28.229</strong></p>
+<p>Infected Windows client host name: <strong>Cat-Bomb-W7-PC</strong> Infected Windows client user account name: <strong>phillip.ghent</strong></p>
+</li>
+<li>
+<p>Other Windows client host name: <strong>CAT-BOMB-W10-PC</strong> Other Windows client user account name: <strong>timothy.sizemore</strong></p>
+</li>
+<li>
+<p>Infected user's email account password: <strong>gh3ntf@st</strong> </p>
+</li>
+<li>SHA256 hashes for the two EXE files: 4e76d73f3b303e481036ada80c2eeba8db2f306cbc9323748560843c80b2fed1 934c84524389ecfb3b1dfcb28f9697a2b52ea0ebcaa510469f0d2d9086bcc79a</li>
+</ol>
+</blockquote>
+<h3 id="_8">通过木马通讯特征</h3>
+<p>在看了答案后，我发现自己一个很大的问题，就是在明确系统受啦某种木马的感染后，一定要先学习、分析这种木马的通讯特征，不能一上来就去看，效率困可能不高。</p>
+<h4 id="_9">成功感染时的特征</h4>
+<p>例如这次Trickbot木马，它在<strong>成功感染系统时</strong>，会通过系统数据发送HTTP POST请求，通过8082端口。并且其请求的POST结尾是<code>\90</code>，因此使用以下的过滤来定位Trickbot感染时的请求：</p>
+<pre><code>http.request.uri contains &quot;/90&quot;
+</code></pre>
+<h4 id="_10">获取密码时的特征</h4>
+<p>Trickbot木马在被感染中的Windows中获取密码时，会发送以“/81”结尾的HTTP POST请求，因此我们可以这样过来来发现邮件账号、密码泄漏：</p>
+<pre><code>http.request.uri contains &quot;/81&quot; and ip contains mail
+http.request.uri contains &quot;/81&quot; and ip contains smtp
+</code></pre>
+<p>如下图所示，把筛选出来的流量follow后可得到邮件通讯信息，其中密码为：<code>gh3ntf@st</code></p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830161530.png" /></p>
+<h4 id="_11">发送文件时的特征</h4>
+<p>在本题目中，我们需要找到Windows可执行文件通讯的信息，在找Windows可执行文件时，通常可以使用以下的这个命令：</p>
+<pre><code>ip contains &quot;This program&quot;
+</code></pre>
+<p>这是根据Windows可执行文件的文件头特征。</p>
+<p>使用该命令过滤后，将过滤出的流量记录follow，可以确定为Windows可执行文件：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830162131.png" /></p>
+<p>且通讯双方的分别为：</p>
+<ul>
+<li>资产 —— <code>10.5.28.229</code></li>
+<li>恶意IP —— <code>162.216.0.163</code></li>
+</ul>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830162231.png" /></p>
+<p>导出这两条记录中所发送的文件：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830162509.png" /></p>
+<p>使用<code>shasum</code>命令计算文件哈希：</p>
+<pre><code class="language-bash">$ shasum -a 256 *.png
+4e76d73f3b303e481036ada80c2eeba8db2f306cbc9323748560843c80b2fed1  cursor.png
+934c84524389ecfb3b1dfcb28f9697a2b52ea0ebcaa510469f0d2d9086bcc79a  imgpaper.png
+</code></pre>
+<p>将该文件哈希在VT中搜索，确定为恶意。</p>
+<h2 id="_12">补充</h2>
+<h3 id="trickbot">Trickbot</h3>
+<h4 id="_13">介绍</h4>
+<p>Trickbot是一种银行木马，它针对用户的敏感信息，并充当其他恶意软件的植入程序。 Trickbot通常通过垃圾邮件活动进行分发。 Trickbot具有执行Web注入，收集凭据以及分发其他恶意软件的功能。 一旦系统被感染，它将解密并下载几个模块。 每个模块都有特定的任务，例如设置持久性，传播和窃取凭据。[2]</p>
+<p>TrickBot除盗窃金融账户信息外，还会盗窃浏览器、FTP、SSH等用户凭据，收集用户隐私，收集环境信息，收集特定类型服务器信息，收集邮箱等等。[4]</p>
+<h4 id="_14">攻击流程</h4>
+<p>以下是一个通过邮箱附件发送Trickbot恶意软件，并导致主机受到感染的过程。</p>
+<p>主要是：用户打开文档执行宏，文档内的恶意代码将会执行，通过调用CMD、POWERSHELL，下载并启动病毒。[4]</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200908135905.png" /></p>
+<p>图：主体分析[4]</p>
+<h4 id="_15">木马分析</h4>
+<p>以下是对18年版本TrickBot木马特征的总结：</p>
+<ul>
+<li>
+<p>木马所用到的字符串全部采用自定义base64编码进行加</p>
+</li>
+<li>
+<p>代码进行了大量混淆对抗静态分析</p>
+</li>
+<li>对抗动态调试</li>
+<li>对抗沙盒检测</li>
+<li>对抗dump分析</li>
+<li>运用了大量加密手段，对抗杀软查杀</li>
+</ul>
+<h4 id="_16">感染特征</h4>
+<h5 id="_17">成功感染时的特征</h5>
+<p>例如这次Trickbot木马，它在<strong>成功感染系统时</strong>，会通过系统数据发送HTTP POST请求，通过8082端口。并且其请求的POST结尾是<code>\90</code>，因此使用以下的过滤来定位Trickbot感染时的请求：</p>
+<pre><code>http.request.uri contains &quot;/90&quot;
+</code></pre>
+<h5 id="_18">获取密码时的特征</h5>
+<p>Trickbot木马在被感染中的Windows中获取密码时，会发送以“/81”结尾的HTTP POST请求，因此我们可以这样过来来发现邮件账号、密码泄漏：</p>
+<pre><code>http.request.uri contains &quot;/81&quot; and ip contains mail
+http.request.uri contains &quot;/81&quot; and ip contains smtp
+</code></pre>
+<p>如下图所示，把筛选出来的流量follow后可得到邮件通讯信息，其中密码为：<code>gh3ntf@st</code></p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830161530.png" /></p>
+<h5 id="_19">发送文件时的特征</h5>
+<p>在本题目中，我们需要找到Windows可执行文件通讯的信息，在找Windows可执行文件时，通常可以使用以下的这个命令：</p>
+<pre><code>ip contains &quot;This program&quot;
+</code></pre>
+<p>这是根据Windows可执行文件的文件头特征。</p>
+<p>使用该命令过滤后，将过滤出的流量记录follow，可以确定为Windows可执行文件：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200830162131.png" /></p>
+<h4 id="_20">知识点补充</h4>
+<h5 id="banking-trojan">什么是银行木马（Banking Trojan）？</h5>
+<p>这是从恶意软件的目的上进行分类，把目的是窃取银行账户信息的恶意软件/木马称为银行木马（Banking Trojan），其主要针对银行机构，包括一些虚拟货币平台等。其主要会搜集用户的敏感信息进行搜集。</p>
+<p>因为是从目的上进行的分类，所以每一种银行木马的技术手段都各不相同。</p>
+<p>例如，恶意软件<a href="https://usa.kaspersky.com/resource-center/threats/zeus-virus">Zeus</a> 通过垃圾邮件和偷渡式下载（从受到破坏和感染的合法网站下载的文件）将自己安装在Window的计算机上。安装完成后，它将使用键盘记录（读取用户键盘输入的功能）记录银行登录详细信息并将其发送回去。它还将自己连接到僵尸网络，以接收进一步的指令。[3]</p>
+<h3 id="http_1">分析HTTP的技巧</h3>
+<blockquote>
+<p>这种有规律、长期请求同一域名的HTTP通信行为一般来说“非奸即盗”。[1]</p>
+<ol>
+<li>奸：很多杀毒软件、APP、商用软件，为保持长连接状态，所装软件会定期通过HTTP或其它协议去连接它的服务器。这样做的目的可以提供在线服务、监控升级版本等等，但同时也可以监控你的电脑、手机，窃取你的信息。</li>
+<li>盗：木马、病毒等恶意软件为监控傀儡主机是否在线，会有心跳机制，那就是通过HTTP或其它协议去连接它的僵尸服务器，一旦你在线，就可以随时控制你。</li>
+</ol>
+</blockquote>
+<h3 id="_21">木马的特殊通信方式</h3>
+<p>// TODO 木马病毒通信不通过DNS解析的方法和技术</p>
+<h3 id="_22">全网环境下的流量监控</h3>
+<p>全网环境下流量速率很高，使用WireShark直接过滤存为单个数据包不太能做到，这时候可以使用TShark，命令行形式的流量分析工具。</p>
+<p>使用命令进行过滤：</p>
+<pre><code class="language-bash">$ tshark - r INPUT_FILE_PATH -Y &quot;ip.addr==10.5.28.229&quot; -W OUTPUT_FILE_PATH
+</code></pre>
+<h2 id="references">References</h2>
+<p>[1] Wireshark分析技巧，Wh0ales，https://wh0ale.github.io/2019/03/09/2019-3-9-wireshark%E6%8A%80%E5%B7%A7/</p>
+<p>[2] Trickbot malware behavior and the protection that Endpoint Security Exploit Prevention signature 6150 offers, https://kc.mcafee.com/corporate/index?page=content&amp;id=KB92380&amp;locale=zh_CN</p>
+<p>[3] What Is a “Banking Trojan?”, <a href="https://www.maketecheasier.com/author/sebatt/">Simon Batt</a> , https://www.maketecheasier.com/what-is-banking-trojan/</p>
+<p>[4] TrickBot银行木马最新版本分析报告, <a href="https://www.anquanke.com/member/122121">奇安信威胁情报中心</a>, https://www.anquanke.com/post/id/167648%5D</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../0x4_27-8-2020/" class="md-footer__link md-footer__link--prev" aria-label="上一页: FRANK-N-TED (WHAT&#39;S GOING ON?)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              FRANK-N-TED (WHAT'S GOING ON?)
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../0x6_1-9-2020/" class="md-footer__link md-footer__link--next" aria-label="下一页: STEELCOFFEE" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              STEELCOFFEE
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1187 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>STEELCOFFEE - Traffic Analysis Train</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#steelcoffee" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Traffic Analysis Train" class="md-header__button md-logo" aria-label="Traffic Analysis Train" data-md-component="logo">
+      
+  <img src="../assets/logo_white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Traffic Analysis Train
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              STEELCOFFEE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/satan1a/traffic-analysis-train/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Toky/TrafficAnalysis
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Traffic Analysis Train" class="md-nav__button md-logo" aria-label="Traffic Analysis Train" data-md-component="logo">
+      
+  <img src="../assets/logo_white.png" alt="logo">
+
+    </a>
+    Traffic Analysis Train
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/satan1a/traffic-analysis-train/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Toky/TrafficAnalysis
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x0_%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83/" class="md-nav__link">
+        相关参考
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x1_23-8-2020/" class="md-nav__link">
+        PIZZA-BENDER
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x2_24-8-2020/" class="md-nav__link">
+        Pcap and alerts for an ISC diary
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x3_26-8-2020/" class="md-nav__link">
+        TECSOLUTIONS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x4_27-8-2020/" class="md-nav__link">
+        FRANK-N-TED (WHAT'S GOING ON?)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x5_29-8-2020/" class="md-nav__link">
+        CATBOMBER
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          STEELCOFFEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        STEELCOFFEE
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    调查过程
+  </a>
+  
+    <nav class="md-nav" aria-label="调查过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    分析可疑的HTTP流量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    确认受攻击资产的情况
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    追溯受攻击资产的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdnip" class="md-nav__link">
+    绕过CDN查询真实IP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    看答案后补充
+  </a>
+  
+    <nav class="md-nav" aria-label="看答案后补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    需要对资产进行梳理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    补充
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vbs" class="md-nav__link">
+    VBS木马
+  </a>
+  
+    <nav class="md-nav" aria-label="VBS木马">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdnip_1" class="md-nav__link">
+    如何透过CDN查询到真实IP
+  </a>
+  
+    <nav class="md-nav" aria-label="如何透过CDN查询到真实IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    利用子域名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    查询DNS历史解析数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mx" class="md-nav__link">
+    利用邮件探测（MX记录）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl" class="md-nav__link">
+    利用SSL证书进行探测
+  </a>
+  
+    <nav class="md-nav" aria-label="利用SSL证书进行探测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sha1-fingerprint" class="md-nav__link">
+    搜索”SHA1 fingerprint”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl_1" class="md-nav__link">
+    搜索SSL证书信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ping" class="md-nav__link">
+    利用多地ping工具
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#favicon_hash" class="md-nav__link">
+    favicon_hash匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-bypass" class="md-nav__link">
+    CloudFlare Bypass
+  </a>
+  
+    <nav class="md-nav" aria-label="CloudFlare Bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ddos" class="md-nav__link">
+    消耗防DDoS流量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    利用 HOST 来判断
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    利用老域名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    暴力匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    利用网站源码泄漏进行获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    社工平台
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x7_7-9-2020/" class="md-nav__link">
+        MONDOGREEK
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x8_22-9-2020/" class="md-nav__link">
+        PCAP AND INFO FOR AN ISC DIARY
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0x9_14-3-2021/" class="md-nav__link">
+        TROUBLE ALERT
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0xA_17-10-2021/" class="md-nav__link">
+        ASCOLIMITED
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0xB_18-10-2021/" class="md-nav__link">
+        ANGRYPOUTINE
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    调查过程
+  </a>
+  
+    <nav class="md-nav" aria-label="调查过程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    分析可疑的HTTP流量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    确认受攻击资产的情况
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    追溯受攻击资产的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdnip" class="md-nav__link">
+    绕过CDN查询真实IP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    看答案后补充
+  </a>
+  
+    <nav class="md-nav" aria-label="看答案后补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    需要对资产进行梳理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    补充
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vbs" class="md-nav__link">
+    VBS木马
+  </a>
+  
+    <nav class="md-nav" aria-label="VBS木马">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdnip_1" class="md-nav__link">
+    如何透过CDN查询到真实IP
+  </a>
+  
+    <nav class="md-nav" aria-label="如何透过CDN查询到真实IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    利用子域名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    查询DNS历史解析数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mx" class="md-nav__link">
+    利用邮件探测（MX记录）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl" class="md-nav__link">
+    利用SSL证书进行探测
+  </a>
+  
+    <nav class="md-nav" aria-label="利用SSL证书进行探测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sha1-fingerprint" class="md-nav__link">
+    搜索”SHA1 fingerprint”
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl_1" class="md-nav__link">
+    搜索SSL证书信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ping" class="md-nav__link">
+    利用多地ping工具
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#favicon_hash" class="md-nav__link">
+    favicon_hash匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloudflare-bypass" class="md-nav__link">
+    CloudFlare Bypass
+  </a>
+  
+    <nav class="md-nav" aria-label="CloudFlare Bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ddos" class="md-nav__link">
+    消耗防DDoS流量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    利用 HOST 来判断
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    利用老域名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    暴力匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    利用网站源码泄漏进行获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    社工平台
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/satan1a/traffic-analysis-train/edit/master/docs/0x6_1-9-2020.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+<h1 id="steelcoffee">STEELCOFFEE</h1>
+<h2 id="_1">题目</h2>
+<blockquote>
+<p>## 2020-04-24 - TRAFFIC ANALYSIS EXERCISE - STEELCOFFEE</p>
+<p>ASSOCIATED FILES:</p>
+<ul>
+<li>
+<p>Zip archive of the pcap: <a href="https://www.malware-traffic-analysis.net/2020/04/24/2020-04-24-traffic-analysis-exercise.pcap.zip">2020-04-24-traffic-analysis-exercise.pcap.zip</a>  26.9 MB (26,903,222 bytes)</p>
+<ul>
+<li>2020-04-24-traffic-analysis-exercise.pcap  (32,925,732 bytes)</li>
+</ul>
+</li>
+<li>
+<p>Zip archive of the alerts: <a href="https://www.malware-traffic-analysis.net/2020/04/24/2020-04-24-traffic-analysis-exercise-alerts.jpg.zip">2020-04-24-traffic-analysis-exercise-alerts.jpg.zip</a>  2.8 MB (2,831,584 bytes)</p>
+<ul>
+<li>2020-04-24-traffic-analysis-exercise-alerts.jpg  (3,122,112 bytes)</li>
+</ul>
+</li>
+</ul>
+<p>NOTES:</p>
+<ul>
+<li>All zip archives on this site are password-protected with the standard password. If you don't know it, look at the "about" page of this website.</li>
+</ul>
+<p>## SCENARIO</p>
+<p>LAN segment data:</p>
+<ul>
+<li>LAN segment range: 10.0.0.0/24 (10.0.0.0 through 10.0.0.255)</li>
+<li>Domain: steelcoffee.net</li>
+<li>Domain controller: 10.0.0.10 - SteelCoffee-DC</li>
+<li>LAN segment gateway: 10.0.0.1</li>
+<li>LAN segment broadcast address: 10.0.0.255 </li>
+</ul>
+<p>## QUESTIONS</p>
+<p>There are three clients in this month's exercise pcap.</p>
+<ul>
+<li>Which two clients are Windows hosts, and what are the associated user account names?</li>
+<li>Which one of these two Windows clients was infected?</li>
+<li>What type of malware was that Windows client infected with?</li>
+</ul>
+<p>## ANSWERS</p>
+<ul>
+<li>Click <a href="https://www.malware-traffic-analysis.net/2020/04/24/page2.html">here</a> for the answers.</li>
+</ul>
+</blockquote>
+<h2 id="_2">调查过程</h2>
+<p>~~时间紧张，详细步骤后续补充，直接记录一些重要的发现。~~</p>
+<h3 id="http">分析可疑的HTTP流量</h3>
+<p>观察URL特征，发现有不像普通的图片ID等请求，类似于后门执行的活动</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200909234327.png" /></p>
+<p>看到伪装成PNG下载的exe，八成恶意。</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200909234434.png" /></p>
+<p>导出对象，分析文件：</p>
+<pre><code class="language-bash">$ file 8888.png
+
+8888.png: PE32 executable (GUI) Intel 80386, for MS Windows
+</code></pre>
+<p>疑似为Qbot木马，银行木马的一种。</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200909234932.png" /></p>
+<h3 id="_3">确认受攻击资产的情况</h3>
+<ul>
+<li>资产IP：<code>10.0.0.167</code></li>
+<li>外部IP：<code>119.31.234.40</code></li>
+<li>外部IP的域名：<code>alphapioneer.com</code></li>
+</ul>
+<h3 id="_4">追溯受攻击资产的信息</h3>
+<p>查看资产IP<code>10.0.0.167</code>的HTTP活动情况：</p>
+<pre><code>ip.addr == 10.0.0.167 and http
+</code></pre>
+<p>按照时间从头看起，可以看到资产IP<code>10.0.0.167</code>有访问一个<code>play.astrite.ga</code>的域名，其IP为<code>159.69.28.93</code>，follow详细信息，发现其下载了一个doc文件，我们尝试导出文件，放入沙箱进行分析。</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200910081820.png" /></p>
+<p>检测出其为一个VBS木马（在“补充”中有写特征）</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200910082601.png" /></p>
+<p>继续追溯，发现资产IP：<code>10.0.0.167</code>与外部IP：<code>104.24.111.29</code>进行通讯。发现其server显示为cloudflare，可能是攻击者的这个钓鱼站点使用了CDN，因此我们尝试绕过CDN查到真实的IP：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200910082301.png" /></p>
+<p>使用<a href="">Censys</a>搜索外部IP：<code>104.24.111.29</code>，确定其为CloudFlare的资产，该目标站点使用的CloudFlare的CDN：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200911072339.png" /></p>
+<h3 id="cdnip">绕过CDN查询真实IP</h3>
+<p>获取域名：<code>atn24live.com</code>签名证书的sha1值，并将暴露出来的SSL证书信息置于<a href="https://censys.io/ipv4">Censys</a>搜索：</p>
+<p>找不到详细信息。使用其他几种方式尝试获取真实CDN后依然无果。</p>
+<h2 id="_5">看答案后补充</h2>
+<h3 id="_6">需要对资产进行梳理</h3>
+<p>答案中给出了对资产的整理，是我没有做的部分，在进行应急响应处置的开始，首先是要对资产情况进行一个了解和清查。</p>
+<blockquote>
+<p>1) The two Windows clients and their user account names are:</p>
+<p>10.0.0.149 - DESKTOP-C10SKPY - alyssa.fitzgerald 10.0.0.167 - DESKTOP-GRIONXA - elmer.obrien</p>
+<p>NOTE: The client on 10.0.0.202 is a host running Ubuntu</p>
+</blockquote>
+<h2 id="_7">补充</h2>
+<h3 id="vbs">VBS木马</h3>
+<h4 id="_8">特征</h4>
+<ul>
+<li>通常使用HTTP通讯</li>
+<li>使用<code>Wscripts.exe</code>作为解释器</li>
+<li>通讯时使用字符串<code>&lt;|&gt;</code>作为信息的分隔符</li>
+</ul>
+<h3 id="cdnip_1">如何透过CDN查询到真实IP</h3>
+<h4 id="_9">利用子域名</h4>
+<blockquote>
+<p>由于成本问题，可能某些厂商并不会将所有的子域名都部署 CDN，所以如果我们能尽量的搜集子域名，或许可以找到一些没有部署 CDN 的子域名，拿到某些服务器的真实 ip/ 段</p>
+<p>然后关于子域名搜集的方式很多，就不一一介绍了，我平时主要是从这几个方面搜集子域名：</p>
+<p>1、SSL 证书</p>
+<p>2、爆破</p>
+<p>3、Google Hacking</p>
+<p>4、同邮箱注册人</p>
+<p>4、DNS 域传送</p>
+<p>5、页面 JS 搜集</p>
+<p>6、网络空间引擎</p>
+<p>工具也有很多厉害的，平时我一般使用 OneForALL + ESD + JSfinder 来进行搜集，（ESD 可以加载 layer 的字典，很好用）[1]</p>
+</blockquote>
+<p>一些运维较好的站点，不容易出现这种情况，此时可以查询一些历史的子域名解析记录，将这些历史的子域名进行网络空间搜索。</p>
+<h4 id="dns">查询DNS历史解析数据</h4>
+<p>使用工具：<a href="https://securitytrails.com/">SecurityTrails</a>可查询DNS历史解析数据，同样的，使用微步在线等也可以：</p>
+<p><img alt="" src="https://image-host-toky.oss-cn-shanghai.aliyuncs.com/20200911083534.png" /></p>
+<p>查找使用Cloudflare前，该域名使用的云主机提供商，可以猜测为真实IP。</p>
+<h4 id="mx">利用邮件探测（MX记录）</h4>
+<p>常在登入注册点，但在测试时应该在一些可能的地方抓去邮件服务相关的信息，例如订阅服务等。同样的，也应该在收到邮件后，对目标站点发送的邮件进行IP、域名探测。</p>
+<p>因为邮件服务的特性，一般除了Web服务外，高防服务不覆盖邮件服务。如果此时目标站点的邮件服务器就是主站的主机，则可通过对邮件发包信息的截取来获得原始IP。</p>
+<p>从邮件header的<code>Return-Path</code>可获取发件的host，我们使用host命令即可探测到发件host的真实IP：</p>
+<pre><code class="language-bash">$ host xxx.net
+</code></pre>
+<h4 id="ssl">利用SSL证书进行探测</h4>
+<h5 id="sha1-fingerprint">搜索”SHA1 fingerprint”</h5>
+<p>将签名证书的sha1值置于<a href="https://censys.io/ipv4">Censys</a>搜索。</p>
+<h5 id="ssl_1">搜索SSL证书信息</h5>
+<p>利用SSL状态检测工具（例如<a href="https://myssl.com/ssl.html">MySSL</a>），获取SSL证书的详细信息，将其中的一些其他信息置于网络空间搜索工具中进行搜索。</p>
+<h4 id="ping">利用多地ping工具</h4>
+<blockquote>
+<p>在偏远地区的服务器访问时，可能不会访问到 CDN 节点，而是直接访问服务器真实 ip</p>
+<p>所以我们可以搞一个偏远地区的代理池，来访问目标域名，有概率就可以拿到真实 ip[1]</p>
+</blockquote>
+<p>常用的比是<a href="https://ping.chinaz.com/">站长之家的多地ping检测</a>，但如今的CDN覆盖面都挺广，直接通过这种方式获取的概率不大，但也很省力，可以一试。</p>
+<h4 id="favicon_hash">favicon_hash匹配</h4>
+<blockquote>
+<p>利用 shodan 的 <strong>http.favicon.hash</strong> 语法，来匹配 icon 的 hash 值, 直接推：<a href="https://github.com/Ridter/get_ip_by_ico/blob/master/get_ip_by_ico.py">https://github.com/Ridter/get_ip_by_ico/blob/master/get_ip_by_ico.py 5</a> [1]</p>
+</blockquote>
+<p>原理是favicon（网站图标）是站点独有文件的，进行hash搜索，可以获得网络空间的关联信息。</p>
+<h4 id="cloudflare-bypass">CloudFlare Bypass</h4>
+<h5 id="ddos">消耗防DDoS流量</h5>
+<blockquote>
+<p>免费版的 cf，我们可以通过 DDOS 来消耗对方的流量，只需要把流量打光，就会回滚到原始 ip[1]</p>
+</blockquote>
+<h5 id="host">利用 HOST 来判断</h5>
+<blockquote>
+<p>还有利用 cloudflare 的改 host 返回示例:</p>
+<blockquote>
+<p><a href="https://blog.detectify.com/2019/07/31/bypassing-cloudflare-waf-with-the-origin-server-ip-address/">https://blog.detectify.com/2019/07/31/bypassing-cloudflare-waf-with-the-origin-server-ip-address/ 15</a></p>
+</blockquote>
+<p>里面给了详细的介绍，我们可以通过 HOST 来判断是否是真实 ip, 具体看文章即可</p>
+</blockquote>
+<h4 id="_10">利用老域名</h4>
+<blockquote>
+<p>在换新域名时，常常将 CDN 部署到新的域名上，而老域名由于没过期，可能未使用 CDN，然后就可以直接获取服务器真实IP。[1]</p>
+</blockquote>
+<p>这个场景虽然听起来玄乎，但其实常常发生，运维人员又要背锅。</p>
+<h4 id="_11">暴力匹配</h4>
+<blockquote>
+<p>找到目标服务器 IP 段后，可以直接进行暴力匹配 ，使用 masscan 扫描 HTTP banner，然后匹配到目标域名的相同 banner[1]</p>
+</blockquote>
+<p>在明确IP段后，也可以通过遍历<code>0.0.0.0/0:443</code>的方式，因为使用IP进行HTTPS连接时，会显示证书信息，便又可使用以上所说的SSL证书进行探测。</p>
+<h4 id="_12">利用网站源码泄漏进行获取</h4>
+<blockquote>
+<p>是否存在网站源码信息泄露，如 phpinfo() 指令中可能包含的IP地址等泄露。[2]</p>
+</blockquote>
+<p>Web层面信息泄漏的一些利用。</p>
+<h4 id="_13">社工平台</h4>
+<p>利用一些社工库。</p>
+<h2 id="references">References</h2>
+<p>[1] 绕过 CDN 寻找真实 IP 地址的各种姿势，<a href="https://forum.90sec.com/u/xazlsec">xazlsec</a>，(https://forum.90sec.com/t/topic/524#)https://forum.90sec.com/t/topic/524</p>
+<p>[2] 使用高防后，服务器还是会受到攻击这是为什么？，https://cloud.tencent.com/developer/news/400870</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../0x5_29-8-2020/" class="md-footer__link md-footer__link--prev" aria-label="上一页: CATBOMBER" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              CATBOMBER
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../0x7_7-9-2020/" class="md-footer__link md-footer__link--next" aria-label="下一页: MONDOGREEK" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              MONDOGREEK
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+    
+  </body>
+</html>
